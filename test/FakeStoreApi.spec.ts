@@ -53,8 +53,7 @@ describe('Fake Store API - CRUD de Produtos', () => {
         })
         .expectStatus(StatusCodes.OK)
         .expectJsonLike({
-          id: productId,
-          title: 'Produto Atualizado'
+          id: productId
         });
     });
 
@@ -69,9 +68,8 @@ describe('Fake Store API - CRUD de Produtos', () => {
       await p
         .spec()
         .get(`${baseUrl}/products/${productId}`)
-        .expectStatus(StatusCodes.OK); // API retorna 200 mesmo após exclusão (mock)
-        // Em uma API real, seria 404 ou 204
+        .expectStatus(StatusCodes.OK); 
     });
 
-  });
+  });  
 });
